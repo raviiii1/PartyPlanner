@@ -1,0 +1,22 @@
+.page{
+    background-color: #000000;
+}
+
+.logo-bar{
+  background-color: #EFEFFE;
+  height: 15vh;
+  text-align: left;
+  text-indent: 5%;
+  font-size: 40px;
+  line-height: 15vh;
+}
+
+.logo-bar a{
+  text-decoration: none;
+  color: #333333;
+}
+
+.content{
+  background-color: #555555;
+  height: 80vh;
+}
