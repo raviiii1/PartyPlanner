@@ -2,13 +2,17 @@
 	<ul>
 		<li><a href="/upcoming">Upcoming Events</a></li>
 		<li><a href="/past">Past Events</a></li>
-		<li><a href="/vote">Votes</a></li>
-		<li>
-			<form class="login">
-				<input type="text" name="username" placeholder="User Name" />
-				<input type="password" name="password" placeholder="Password" />
-				<input type="button" value="LOGIN" />
+		<li *ngIf="isLoggedIn"><a href="/vote">Votes</a></li>
+		<li *ngIf="!isLoggedIn"><a href="/credits">Credits</a></li>
+		<li *ngIf="isAdmin && isLoggedIn"><a href="/new-party">New Party</a><li>
+		<li *ngIf="isAdmin && isLoggedIn"><a href="/settings">Settings</a></li>
+		<li *ngIf="!isLoggedIn">
+			<form class="login" #form="ngForm" (ngSubmit)="login(form)" novalidate>
+				<input type="text" class="input-field" ngModel name="username" placeholder="User Name" #username="ngModel"/>
+				<input type="password" class="input-field" ngModel name="password" placeholder="Password" />
+				<button class="button-field">LOGIN</button>
 			</form>
 		</li>
+		<li *ngIf="isLoggedIn"><a (click)="logout()">Logout</a></li>
 	</ul>
 </div>

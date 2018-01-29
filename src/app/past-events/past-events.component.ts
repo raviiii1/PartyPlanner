@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service'
 
 @Component({
   selector: 'app-past-events',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastEventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authservice:AuthenticationService) { }
 
   ngOnInit() {
+  }
+
+  isAdmin(){
+    return this.authservice.isAdmin();
+  }
+
+  isLoggedIn(){
+    return this.authservice.isLoggedIn()
   }
 
 }
