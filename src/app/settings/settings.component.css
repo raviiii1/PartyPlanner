@@ -1,0 +1,41 @@
+.settings{
+  padding: 2% 5%;
+}
+
+.settings ul{
+  padding: 0px;
+  margin: 0px;
+}
+
+fieldset{
+  border-bottom: 1px solid #009688;
+}
+
+.settings-item{
+  padding: 2% 2%;
+  display: none;
+}
+
+.settings-name{
+  cursor: pointer;
+  line-height: 2em;
+  display: inline-block;
+}
+
+.settings-name:hover{
+  text-decoration: underline;
+}
+
+form{
+  width: 50%;
+}
+
+li{
+  list-style-type: none;
+}
+
+li:before{
+    content: '» \0000a0 ';
+    font-size: 1.2em;
+    font-weight: bold;
+}

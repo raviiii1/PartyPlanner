@@ -1,9 +1,8 @@
 .navBar{
-  background-color: #CECECE;
-  padding: 0% 1%;
+  background-color: #B0BEC5;
   box-sizing: border-box;
   width: 100%;
-  height: 5vh;
+  height: 6vh;
 }
 
 .navBar ul{
@@ -12,21 +11,28 @@
 }
 
 .navBar li{
+  font-size: 1em;
   float: left;
-  line-height: 5vh;
-  padding: 0% 5%;
+  line-height: 6vh;
+  padding: 0% 2%;
   list-style: none;
+  color: #FFFFFF;
 }
 
 .navBar li:hover{
-  background-color: #FFFFFF;
+  background-color: #B0BEC5;
+}
+
+.navBar li:last-child{
+  float: right;
 }
 
 .navBar li:last-child:hover{
-  background-color: #CECECE;
+  background-color: #B0BEC5;
 }
 
-.navBar li a{
+.navBar a{
+  color: #FFFFFF;
   text-decoration: none;
 }
 

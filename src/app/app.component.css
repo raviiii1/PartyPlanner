@@ -1,14 +1,18 @@
 .page{
-    background-color: #000000;
+}
+.header{
+    height: 20vh;
+    width: 100%;
 }
 
 .logo-bar{
-  background-color: #EFEFFE;
-  height: 15vh;
-  text-align: left;
-  text-indent: 5%;
-  font-size: 40px;
-  line-height: 15vh;
+  height: 14vh;
+  padding: 0% 5%;
+
+  background-size: cover;
+  background-position: right;
+  background: linear-gradient(90deg, #ffff, #ffff, transparent), url("../assets/images/back.png") no-repeat center;
+  content: '';
 }
 
 .logo-bar a{
@@ -16,7 +20,42 @@
   color: #333333;
 }
 
+.logo-icon{
+  vertical-align: middle;
+  max-height: 14vh;
+  object-fit: contain;
+}
+/*
+.shadow1{
+    margin: 20px 0px 0px -250px;
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background-color: #ffffff;
+    box-shadow: 0px 10px 10px;
+    transform: rotate(180deg);
+}
+
+.shadow2{
+    width: 20px;
+    display: inline-block;
+    height: 1px;
+    background-color: #ffffff;
+    box-shadow: 0px 20px 10px;
+    transform: rotate(180deg);
+}
+
+.shadow3{
+    width: 100px;
+    display: inline-block;
+    height: 1px;
+    background-color: #ffffff;
+    transform: rotate(180deg);
+    box-shadow: 0px 10px 10px;
+}
+*/
 .content{
-  background-color: #555555;
+  opacity: .9;
   height: 80vh;
+  overflow: auto;
 }

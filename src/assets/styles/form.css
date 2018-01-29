@@ -1,0 +1,103 @@
+fieldset{
+  width: 100%;
+  margin-bottom: 5%;
+  border: 0px;
+  border-top: 1px solid #009688;
+}
+
+legend{
+  font-size: 1.1em;
+  padding: .3em 1em;
+  color: #009688;
+}
+
+.form-row{
+    width: 100%;
+    padding: 2% 2%;
+}
+
+.label{
+  display: inline-block;
+  float: left;
+  width: 30%;
+  text-align: left;
+  font-size: 1em;
+  height: 30px;
+}
+
+.input{
+  float: left;
+  margin-bottom: 1%;
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+  font-size: 1em;
+  height: 30px;
+}
+
+input[type=text], input[type=number], input[type=datetime-local], input[type=date], select, option{
+  text-indent: .5em;
+  height: 25px;
+  width: 100%;
+  font-family: inherit;
+  border: 1px solid #B0BEC5;
+}
+
+select, option, input[type=date]{
+  text-indent: .2em;
+}
+
+input:hover, select:hover,option:hover {
+  border: 1px solid #009688;
+}
+
+input:focus, select:focus,option:focus {
+  border: 1px solid #009688;
+}
+
+input[type=button], input[type=submit]{
+  margin-left: 1%;
+  float: right;
+  display: inline-block;
+  padding: 1% 5%;
+  text-align: center;
+  font-size: 1em;
+  border-radius: 2px;
+  border: 1px solid #009688;
+  background-color: #009688;
+  color: #FFFFFF;
+}
+
+input[type=button]:hover, input[type=submit]:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+input[type=button]:active, input[type=submit]:active{
+  background-color: #ED1C24;
+}
+
+.tags-row{
+  padding: 1%;
+  border: 1px solid #B0BEC5;
+}
+
+.tag{
+  padding: .2em .5em .2em 1em;
+  border-radius: 0em 1em 1em 0em;
+  background-color: #009688;
+  color: #ffffff;
+  margin: 2px;
+  display: inline-block;
+}
+
+.tag-cross{
+  padding: 0px 5px;
+}
+
+.tag-cross:hover{
+  width: 2em;
+  height: 1em;
+  cursor: pointer;
+  text-decoration: underline;
+}

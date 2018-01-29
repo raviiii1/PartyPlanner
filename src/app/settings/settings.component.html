@@ -1,0 +1,126 @@
+<div class="settings">
+  <ul>
+    <li>
+      <div class="settings-name" (click)="toggle($event)">Add a team member.</div>
+      <div class="settings-item">
+        <form #addTeamMemForm="ngForm" (ngSubmit)="addTeamMember(addTeamMemForm)" >
+          <fieldset>
+            <div class="form-row">
+              <div class="label"><label for="memberName">Name : </label></div>
+              <div class="input">  <input type="text" [(ngModel)]="memberName" name="memberName" placeholder="New member name."></div>
+            </div>
+            <div class="form-row">
+              <div class="label"><label for="id">ID : </label></div>
+              <div class="input"><input type="text" [(ngModel)]="id" name="id" placeholder="Member's ID. Ex Kronos email-Id without @kronos.com."></div>
+            </div>
+            <div class="form-row">
+              <div class="label"><label for="dob">Birth Date : </label></div>
+              <div class="input"><input type="date" [(ngModel)]="dob" name="dob" placeholder="Birth Date"></div>
+            </div>
+            <div class="form-row">
+              <div class="label"><label for="vorous">Vorous : </label></div>
+              <div class="input">
+                <select name="vorous" [(ngModel)]="vorous">
+                  <option value="Herbivorous">Herbivorous</option>
+                  <option value="Carnivorous">Carnivorous</option>
+                  <option value="Omnivorous">Omnivorous</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input">
+                <input type="checkbox" id="admin" [(ngModel)]="admin" checked name="admin" value="admin" >
+                <label for="admin">Make admin.</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input"><input type="submit" value="ADD MEMBER"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </li>
+    <li>
+      <div class="settings-name" (click)="toggle($event)">Remove a team member.</div>
+      <div class="settings-item">
+        <form #deleteTeamMemForm="ngForm" (ngSubmit)="deleteTeamMember(deleteTeamMemForm)" novalidate>
+          <fieldset>
+            <div class="form-row">
+              <div class="label"><label for="memberEmailId">Member : </label></div>
+              <div class="input">
+                <select name="memberEmailId" [(ngModel)]="memberEmailId">
+                  <option *ngFor="let teamMember of team" value="{{teamMember.id}}">{{teamMember.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input"><input type="submit" value="DELETE"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </li>
+    <li>
+      <div class="settings-name" (click)="toggle($event)">Create new DL.</div>
+      <div class="settings-item">
+        <form #createDLForm="ngForm" (ngSubmit)="createDL(createDLForm)">
+          <fieldset>
+            <div *ngIf="membersInDL?.length" class="form-row tags-row">
+              <div class="tag" *ngFor="let mem of membersInDL">
+                {{mem.name}}
+                <span class="tag-cross" (click)="removeMemInDL(mem)">X</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"><label for="memIdInDL">Member Name : </label></div>
+              <div class="input">
+                <select [(ngModel)]="memIdInDL" name="memIdInDL">
+                  <option *ngFor="let teamMember of team" value="{{teamMember.id}}">{{teamMember.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input"><input type="button" (click)="addMembersInDL(createDLForm.value.memIdInDL)" value="ADD"></div>
+            </div>
+            <div class="form-row">
+              <div class="label"><label for="dlName">DL Name : </label></div>
+              <div class="input"><input type="text" [(ngModel)]="dlName" name="dlName" placeholder="DL Name" /></div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input"><input type="submit" value="CREATE"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </li>
+    <li>
+      <div class="settings-name" (click)="toggle($event)">New Admin.</div>
+      <div class="settings-item">
+        <form #newAdminForm="ngForm" (click)="makeAdmin(newAdminForm)">
+          <fieldset>
+            <div class="form-row">
+              <div class="label"><label for="memName">Member Name : </label></div>
+              <div class="input">
+                <select [(ngModel)]="memName" name="memName">
+                  <option *ngFor="let teamMember of team" value="{{teamMember.emailId}}">{{teamMember.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="label"></div>
+              <div class="input"><input type="submit" value="Make Admin"></div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </li>
+    <li>
+      <div class="settings-name" (click)="toggle($event)">Gallery.</div>
+    </li>
+  </ul>
+</div>

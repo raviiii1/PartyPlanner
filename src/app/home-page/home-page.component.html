@@ -1,2 +1,11 @@
-
-  home-page works!
+<div class="home-page">
+	<div class="slideshow-container">
+		<div *ngFor="let photo of photos; let i = index" class="mySlides fade">
+			<div class="numbertext"> {{i+1}} / {{totalPhotosCount}}</div>
+		  <img src="{{photo.src}}">
+		  <div class="caption-text">{{ photo.caption }}</div>
+		</div>
+		<a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+		<a class="next" (click)="plusSlides(1)">&#10095;</a>
+	</div>
+</div>

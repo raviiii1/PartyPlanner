@@ -1,0 +1,115 @@
+<div class="new-party">
+  <form class="new-party-form" #newPartyForm="ngForm" (ngSubmit)="submitAndReleaseNewParty(newPartyForm)" novalidate>
+    <fieldset class="parent-fieldset">
+      <legend class="parent-legend">New Party</legend>
+    <fieldset >
+      <legend>Party Details</legend>
+      <div class="form-row">
+        <div class="label"><label for="partyName">Party Name : </label></div>
+        <div class="input"><input type="text" [(ngModel)]="partyName" name="partyName" placeholder="Party Name" /></div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="venue">Venue : </label></div>
+        <div class="input"><input type="text" [(ngModel)]="venue" name="venue" placeholder="Venue" /></div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="dateTime">Date/Time : </label></div>
+        <div class="input"><input type="datetime-local" [(ngModel)]="dateTime" name="dateTime" placeholder="Date-Time" /></div>
+      </div>
+    </fieldset>
+
+    <fieldset >
+      <legend>Contributors</legend>
+      <div *ngIf="contributors?.length" class="form-row tags-row">
+        <div class="tag" *ngFor="let con of contributors">
+          {{con.contributorName}} | {{con.amount}}
+          <span class="tag-cross" (click)="removeContributor(con)">X</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="contributorName">Contributor : </label></div>
+        <div class="input">
+            <select [(ngModel)]="contributorName" name="contributorName">
+              <option *ngFor="let teamMember of savedTeamMembers" value="{{teamMember.emailId}}">{{teamMember.name}}</option>
+            </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="amount">Amount : </label></div>
+        <div class="input"><input type="number" [(ngModel)]="amount" name="amount" placeholder="Amount" /></div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="occasion">Occasion : </label></div>
+        <div class="input">
+            <select [(ngModel)]="occasion" name="occasion">
+              <option value="BirthDay">BirthDay</option>
+              <option value="Promotion">Promotion</option>
+              <option value="Marriage">Marriage</option>
+              <option value="Baby">Baby</option>
+              <option value="Other">Other</option>
+            </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <input type="button" (click)="addContributor(newPartyForm)" name="addContributor" value="ADD">
+      </div>
+    </fieldset>
+
+    <fieldset >
+      <legend>Menu</legend>
+      <div *ngIf="menuItems?.length" class="form-row tags-row">
+        <div class="tag" *ngFor="let itm of menuItems">
+          {{itm.itemName}}
+          <span class="tag-cross" (click)="removeItem(itm)">X</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="itemName">Item Name : </label></div>
+        <div class="input">
+          <select [(ngModel)]="itemName" name="itemName">
+            <option *ngFor="let savedItem of savedMenuItems" value="{{savedItem.itemId}}">{{savedItem.name}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="text-align:center; font-size:14px;">
+        OR
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="newItem"></label></div>
+        <div class="input"><input type="text" [(ngModel)]="newItem" name="newItem" placeholder="Enter new item name" /></div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="itemDesc">Description </label></div>
+        <div class="input"><input type="text" [(ngModel)]="itemDesc" name="itemDesc" placeholder="Description" /></div>
+      </div>
+      <div class="form-row">
+        <input type="button" (click)="addMenuItem(newPartyForm)" name="addMenuItem" value="ADD">
+      </div>
+    </fieldset>
+
+    <fieldset >
+      <legend>Members </legend>
+      <div *ngIf="memberList?.length" class="form-row tags-row">
+        <div class="tag" *ngFor="let mem of memberList">
+          {{mem.members}}
+          <span class="tag-cross" (click)="removeMember(mem)">X</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="label"><label for="members">Members/DL : </label></div>
+        <div class="input">
+            <select [(ngModel)]="members" name="members">
+                <option *ngFor="let dl of savedDLList" value="{{dl.emailId}}">{{dl.name}}</option>
+                <option *ngFor="let teamMember of savedTeamMembers" value="{{teamMember.emailId}}">{{teamMember.name}}</option>
+            </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <input type="button" (click)="addMember(newPartyForm)" name="addMember" value="ADD">
+      </div>
+    </fieldset>
+      <input type="submit" name="saveAndRelease" value="SAVE AND RELEASE">
+      <input type="button" (click)="saveNewParty(newPartyForm, false)" name="save" value="SAVE">
+    </fieldset>
+  </form>
+</div>

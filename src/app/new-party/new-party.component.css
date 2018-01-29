@@ -1,0 +1,24 @@
+.new-party{
+  padding: 2%;
+  height: 100%;
+  }
+
+.new-party-form{
+  box-sizing: border-box;
+  width: 70%;
+  margin: auto;
+}
+
+.parent-fieldset{
+  width: 100%;
+  margin-bottom: 5%;
+  border: 1px solid #009688;
+  padding: 2% 7%;
+}
+
+.parent-legend{
+  font-size: 1.5em;
+  padding: .3em 1em;
+  text-align: center;
+  font-weight: bold;
+}
