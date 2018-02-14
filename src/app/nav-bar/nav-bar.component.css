@@ -33,6 +33,7 @@
 
 .navBar a{
   color: #FFFFFF;
+  cursor: pointer;
   text-decoration: none;
 }
 

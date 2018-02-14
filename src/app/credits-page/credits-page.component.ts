@@ -11,5 +11,9 @@ export class CreditsPageComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  myCall(){
+	console.log("Called");
+  }
 
 }

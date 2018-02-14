@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../authentication.service'
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,23 +11,43 @@ import { AuthenticationService } from '../authentication.service'
 })
 export class NavBarComponent implements OnInit {
 
-  isLoggedIn:boolean = false;
-  isAdmin:boolean = false;
-
-  constructor(private authService:AuthenticationService) { }
+  constructor(private authService:AuthenticationService,private router : Router) { }
 
   ngOnInit() {
   }
 
   login(form:NgForm){
-      this.isLoggedIn = this.authService.login(form.value);
-      this.isAdmin = this.authService.isAdmin();
+	  if(!form.value.username || form.value.username === "")
+		return false;
+	  if(!form.value.password || form.value.password === "")
+		return false;
+
+      this.authService.login(form.value)
+	  .subscribe(
+		res => {
+				let token = res.headers.get("authentication").split(" ")[1];
+				this.authService.setLocalStorage(token);
+              },
+		err => {
+                console.log("Error occured");
+              }
+		);
+  }
+  
+  isLoggedIn(){
+	  return this.authService.isLoggedIn();
+  }
+  
+  isAdmin(){
+	  return this.authService.isAdmin();
   }
 
   logout(){
     this.authService.logout();
-    this.isLoggedIn = false;
-    this.isAdmin = false;
   }
 
+  pageChange(pageName:string){
+	   this.router.navigate([pageName]);
+  }
+  
 }
